@@ -28,7 +28,7 @@ const App = () => {
     If we want the a() to be invoked only once, then keep the b empty. 
   */
   useEffect(() => {
-    console.log('effect fired!');
+    // console.log('effect fired!');
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(users => setMonsters(users))
@@ -50,9 +50,6 @@ const App = () => {
   .then(users => setMonsters(users))
   .catch(error => console.log(error));
   */
-
-
-
   const onSearchChange = (event) => {
     const searchFieldString = event.target.value.toLocaleLowerCase();
     // sets the field value similar to setState() in class based
@@ -64,6 +61,7 @@ const App = () => {
       <h1 className="app-title">Monsters Rolodex</h1>
       <SearchBox 
         className="monsters-search-box"
+        placeholder="search monsters"
         onChangeHandler={onSearchChange}
       />
       <CardList monsters={filteredMonsters}/>

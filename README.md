@@ -68,3 +68,48 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### Personal Notes
+
+order in which things run
+
+    constructor
+    render function
+    ComponentDidMount lifecycle method
+
+
+React re-renders a component when either of these 2 events happen
+a. setState
+b. props change
+re-render meaning render() fn is called
+
+
+React lifecycle methods for class based components
+diagram https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+In short,
+ComponentDidMount gets invoked when DOM is mounted everytime
+ComponentDidUpdate gets invoked on re-rendering of the component.
+  Note: Re-render happens when setState is called
+When a component is no longer needed, React will unmount it from DOM. 
+  Then ComponentWillUnmount is invoked before that.
+
+
+Functional components does not have any lifecycle methods 
+keywords to consider exploring
+
+Pure fn: If the output of a function is purely dependant on the inputs of the given function.
+The output does not change for same inputs.
+eg: function funcA(a,b) {return a + b}; 
+
+Impure fn: If the output of a fn is dependant on some variable outside the scope of given function.
+The output can change for same inputs.
+eg: 
+var c = 10;
+function funcA(a,b) {return a + b +c};
+now, I can change the value of c outside the function. 
+lets say, c = 11;
+now for same inputs, funcA will produce different outputs.
+
+Side affect: If a fn is modifying/changing something outside the scope of the function its a sideaffect
